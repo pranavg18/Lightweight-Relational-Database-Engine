@@ -1,0 +1,37 @@
+CREATE tabA tabB 0
+OPEN tabA tabB 0
+STORE tabA 101 0 Alice 123_Apple_St alice@apple.com
+STORE tabA 102 0 Bob 456_Banana_Ave bob@banana.com
+STORE tabA 103 0 Charlie 789_Cherry_Blvd charlie@cherry.com
+STORE tabB 201 0 Dave 111_Date_Dr dave@date.com
+STORE tabB 202 0 Eve 222_Elder_Ln eve@elder.com
+STORE tabB 203 0 Frank 333_Fig_Rd frank@fig.com
+SEARCH tabA 101 0 Alice 123_Apple_St alice@apple.com
+SEARCH tabB 202 0 Eve 222_Elder_Ln eve@elder.com
+SEARCH tabA 201 1
+SEARCH tabB 101 1
+UPDATE tabA 102 0 Bob_New 456_Banana_Ave bob_new@banana.com
+UPDATE tabB 203 0 Frank_New 333_Fig_Rd frank_new@fig.com
+SEARCH tabA 102 0 Bob_New 456_Banana_Ave bob_new@banana.com
+SEARCH tabB 203 0 Frank_New 333_Fig_Rd frank_new@fig.com
+DELETE tabA 103 0
+DELETE tabB 201 0
+SEARCH tabA 103 1
+SEARCH tabB 201 1
+UPDATE tabA 103 1 Ghost 000_Nowhere ghost@nowhere.com
+DELETE tabB 201 1
+CLOSE 0
+OPEN tabA tabB 0
+SEARCH tabA 101 0 Alice 123_Apple_St alice@apple.com
+SEARCH tabA 102 0 Bob_New 456_Banana_Ave bob_new@banana.com
+SEARCH tabA 103 1
+SEARCH tabB 201 1
+SEARCH tabB 202 0 Eve 222_Elder_Ln eve@elder.com
+SEARCH tabB 203 0 Frank_New 333_Fig_Rd frank_new@fig.com
+STORE tabA 104 0 Grace 999_Grape_Ct grace@grape.com
+STORE tabB 204 0 Heidi 888_Hazel_St heidi@hazel.com
+SEARCH tabA 104 0 Grace 999_Grape_Ct grace@grape.com
+SEARCH tabB 204 0 Heidi 888_Hazel_St heidi@hazel.com
+UPDATE tabA 901 1 Nobody 000_Void nobody@void.com
+DELETE tabB 902 1
+CLOSE 0

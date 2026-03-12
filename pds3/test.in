@@ -1,0 +1,64 @@
+CREATE hospital_table branch_table 0
+OPEN hospital_table branch_table 0
+STORE hospital_table 1 0 City_Hospital Bangalore contact@cityhosp.com
+STORE hospital_table 2 0 Green_Cross Delhi gc@green.com
+STORE hospital_table 3 0 Sun_Care Mumbai sun@sun.com
+STORE branch_table 101 0 North_Wing Block_A north@cityhosp.com
+STORE branch_table 102 0 East_Wing Block_B east@cityhosp.com
+STORE branch_table 103 0 South_Block Tower_C south@sun.com
+SEARCH hospital_table 1 0 City_Hospital Bangalore contact@cityhosp.com
+SEARCH hospital_table 2 0 Green_Cross Delhi gc@green.com
+SEARCH branch_table 101 0 North_Wing Block_A north@cityhosp.com
+SEARCH hospital_table 999 1
+SEARCH branch_table 0 1
+UPDATE hospital_table 1 0 City_Hospital_Updated Bangalore contact@cityhosp.com
+SEARCH hospital_table 1 0 City_Hospital_Updated Bangalore contact@cityhosp.com
+UPDATE hospital_table 1 0 City_Hospital_V2 NewCity v2@cityhosp.com
+SEARCH hospital_table 1 0 City_Hospital_V2 NewCity v2@cityhosp.com
+UPDATE hospital_table 999 1 NoSuchHosp Nowhere no@none.com
+REL_CREATE hosp_branch_rel hospital_table branch_table 0
+REL_OPEN hosp_branch_rel 0
+REL_STORE 999 101 1
+REL_STORE 1 999 1
+REL_STORE 1 101 0
+REL_STORE 2 102 0
+REL_STORE 3 103 0
+REL_SEARCH 1 0 101 North_Wing Block_A north@cityhosp.com
+REL_SEARCH 2 0 102 East_Wing Block_B east@cityhosp.com
+REL_SEARCH 3 0 103 South_Block Tower_C south@sun.com
+REL_SEARCH 999 1
+DELETE hospital_table 2 0
+SEARCH hospital_table 2 1
+REL_SEARCH 2 1
+REL_STORE 2 102 1
+UPDATE hospital_table 2 1 New_Green Delhi gc2@green.com
+DELETE hospital_table 2 1
+SEARCH hospital_table 1 0 City_Hospital_V2 NewCity v2@cityhosp.com
+REL_SEARCH 1 0 101 North_Wing Block_A north@cityhosp.com
+REL_SEARCH 3 0 103 South_Block Tower_C south@sun.com
+DELETE branch_table 103 0
+SEARCH branch_table 103 1
+REL_SEARCH 3 1
+SEARCH branch_table 101 0 North_Wing Block_A north@cityhosp.com
+UNDELETE hospital_table 2 0
+SEARCH hospital_table 2 0 Green_Cross Delhi gc@green.com
+REL_SEARCH 2 1
+UNDELETE hospital_table 888 1
+UNDELETE hospital_table 2 1
+REL_CLOSE 0
+CLOSE 0
+OPEN hospital_table branch_table 0
+REL_OPEN hosp_branch_rel 0
+SEARCH hospital_table 1 0 City_Hospital_V2 NewCity v2@cityhosp.com
+SEARCH hospital_table 2 0 Green_Cross Delhi gc@green.com
+SEARCH hospital_table 3 0 Sun_Care Mumbai sun@sun.com
+SEARCH branch_table 101 0 North_Wing Block_A north@cityhosp.com
+SEARCH branch_table 102 0 East_Wing Block_B east@cityhosp.com
+SEARCH branch_table 103 1
+REL_SEARCH 1 0 101 North_Wing Block_A north@cityhosp.com
+REL_SEARCH 2 1
+REL_SEARCH 3 1
+REL_CLOSE 0
+REL_CLOSE 1
+CLOSE 0
+CLOSE 1

@@ -1,5 +1,7 @@
 # Lightweight Relational Database Engine
 
+![Interactive CLI Demo](demo.gif)
+
 A custom-built, lightweight relational database engine written in C. This project was developed incrementally to understand the core internals of database management systems (DBMS), focusing on storage engines, indexing, and relational data structures.
 
 ## Project Structure and Progression
